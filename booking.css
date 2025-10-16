@@ -1,0 +1,266 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  a{
+    text-decoration: none;
+  }
+  .body{
+    background-color: rgb(80, 74, 74);
+  }
+  .section{
+    padding:5rem 10%;
+  }
+  .btn{
+    margin-top: 1rem;
+    display: inline-block;
+    border-style: dashed;
+    color:whitesmoke;
+    cursor: pointer;
+    background:none;
+    font-size:1.7rem;
+    padding:1rem 3rem;
+    position: relative;
+    text-shadow: 2px 2px black; 
+}
+
+  
+  .btn:hover{
+    background:#ffc400;
+    color:black
+  }
+
+  .heading{
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-size: 4rem;
+    color: #ffc400;
+     
+  }
+  
+
+  .header{
+    position: fixed;
+    top:0; left:0; right: 0;
+    z-index: 1000;
+    display:flex;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    box-shadow: darkgrey;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    padding:30px 18%;
+    transition:ease .40s;
+  }
+
+  .logo a{
+    font-size: 35px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: whitesmoke;
+
+  }
+
+  .logo span{
+    color: #ffc400;;
+  }
+
+  .nav{
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+   
+    
+   
+  }
+  .nav ul{
+    float:right
+  }
+  
+  .nav li{
+    display:inline-block;
+    list-style: none;
+  }
+  .nav a{
+    color: whitesmoke;
+    font-size: 1.5rem;
+    font-weight: 500;
+    padding:10px 22px;
+    border-radius: rpx;
+    transition:ease .40s;
+
+  }
+.nav a:hover{
+  color: #ffc400;
+  box-shadow: 5px 10px 30px rgb(85 85 85 / 20%);
+  border-radius: 4px;
+}
+
+.bookinghome{
+    position:relative;
+    width:100%;
+    height:360px;
+    background-color: black;
+    background-image: url(slide5.jpg) ;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    align-items: center;
+  
+  
+  }
+  .bookinghome h1{
+    font-size:15vmin;
+  line-height:1.2 ;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  letter-spacing:4px ;
+  margin-bottom: 20px;
+  margin-left: 50%;
+  color: #ffc400;
+  text-shadow: 2px 2px black; }
+
+
+/*form section*/
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: black;
+    
+}
+.booking-container{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.booking-form {
+    background:#ffc400;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    max-width: 500px;
+    width: 100%;
+    
+ 
+}
+.booking-form h2 {
+    margin-bottom: 20px;
+}
+.booking-form label {
+    display: block;
+    margin-bottom: 8px;
+}
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.booking-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #050505;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+}
+.booking-form button:hover {
+    background-color: #1c849e;
+}
+
+
+/* Style the footer section */
+.footer {
+    background-color: #292929;
+    color: #fff;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+  
+  .footer-content {
+    display: flex;
+    align-items: center;
+  }
+  
+  .footer-logo {
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 30px;
+  }
+  
+  .footer-nav {
+    margin-left: 30px;
+  }
+  
+  .footer-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-nav li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
+  .footer-nav a {
+    color: inherit;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .footer-contact {
+    margin-left: auto;
+  }
+  
+  .footer-contact p {
+    margin: 0;
+  }
+  
+  .footer-contact a {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 14px;
+  }
+  
+  .footer-legal {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .footer-legal p {
+    margin: 0;
+    font-size: 12px;
+  }
+  
+  .footer-legal a {
+    color: inherit;
+    text-decoration: none;
+    font-size: 12px;
+    margin-right: 10px;
+  }
+  
+  
+  

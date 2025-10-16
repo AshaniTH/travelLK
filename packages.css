@@ -1,0 +1,298 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  a{
+    text-decoration: none;
+  }
+  .body{
+    background-color: rgb(80, 74, 74);
+  }
+  .section{
+    padding:5rem 10%;
+  }
+  .btn{
+    margin-top: 1rem;
+    display: inline-block;
+    border-style: dashed;
+    color:whitesmoke;
+    cursor: pointer;
+    background:none;
+    font-size:1.7rem;
+    padding:1rem 3rem;
+    position: relative;
+    text-shadow: 2px 2px black; 
+}
+
+  
+  .btn:hover{
+    background:#ffc400;
+    color:black
+  }
+
+  .heading{
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-size: 4rem;
+    color: #ffc400;
+     
+  }
+  
+
+  .header{
+    position: fixed;
+    top:0; left:0; right: 0;
+    z-index: 1000;
+    display:flex;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    box-shadow: darkgrey;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    padding:30px 18%;
+    transition:ease .40s;
+  }
+
+  .logo a{
+    font-size: 35px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: whitesmoke;
+
+  }
+
+  .logo span{
+    color: #ffc400;;
+  }
+
+  .nav{
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
+    
+   
+  }
+  .nav ul{
+    float:right
+  }
+  
+  .nav li{
+    display:inline-block;
+    list-style: none;
+  }
+  .nav a{
+    color: whitesmoke;
+    font-size: 1.5rem;
+    font-weight: 500;
+    padding:10px 22px;
+    border-radius: rpx;
+    transition:ease .40s;
+
+  }
+.nav a:hover{
+  color: #ffc400;
+  box-shadow: 5px 10px 30px rgb(85 85 85 / 20%);
+  border-radius: 4px;
+}
+
+
+.packageshome{
+  position:relative;
+  width:100%;
+  height:360px;
+  background-color: black;
+  background-image: url(clip3.jpg) ;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  display: grid;
+  grid-template-columns: repeat(1,1fr);
+  align-items: center;
+
+
+}
+.packageshome h1{
+  font-size:15vmin;
+line-height:1.2 ;
+font-family: Georgia, 'Times New Roman', Times, serif;
+letter-spacing:4px ;
+margin-bottom: 20px;
+margin-left: 50%;
+color: #ffc400;
+text-shadow: 2px 2px black; 
+
+}
+
+
+/*package section*/
+.packages{
+  background-color: black;
+}
+
+.package-card{
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content:center;
+  flex-wrap: wrap;
+  padding: 30px;
+  margin-top:8%;
+  
+ 
+}
+
+.card{
+  width: 308px;
+  position:relative;
+  height:auto;
+  border-width: 2px;
+  border-style: dashed;
+  border-color: #ffc400;
+  background:transparent; 
+  margin: 30px 10px;
+  padding:20px 15px;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.picture img{
+ width:90%;
+ height: 185px;
+ margin-left: 5%;
+ margin-right: 5%;
+ 
+}
+
+.packages .content {
+  h3{
+    font-size: 1.5rem;
+    color: #ffc400;
+    max-width: 250px;
+
+  }
+  p{
+    font-size: 1rem;
+    color: whitesmoke;
+    width: 250px;
+    margin-top: 5px;
+    
+    
+
+  }
+  .price{
+    font-size: medium;
+    font-weight: 8px;
+    color: #ffc400;
+    margin-top: auto;
+    margin-bottom: 1.5rem;
+  }
+
+  .btn{
+    margin-bottom: 1.5rem;
+    margin-top: auto;
+    
+  }
+  
+}
+
+.lord{
+  .btn{
+    margin-left: 50%;
+  }
+}
+
+  
+/* Style the footer section */
+.footer {
+  background-color: #292929;
+  color: #fff;
+  padding: 20px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+}
+
+.footer-logo {
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 30px;
+}
+
+.footer-nav {
+  margin-left: 30px;
+}
+
+.footer-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-nav li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.footer-nav a {
+  color: inherit;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-contact {
+  margin-left: auto;
+}
+
+.footer-contact p {
+  margin: 0;
+}
+
+.footer-contact a {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+.footer-legal {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.footer-legal p {
+  margin: 0;
+  font-size: 12px;
+}
+
+.footer-legal a {
+  color: inherit;
+  text-decoration: none;
+  font-size: 12px;
+  margin-right: 10px;
+}
+
+
+
+
+
+
+
+
