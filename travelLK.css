@@ -3,14 +3,46 @@
     padding: 0;
     box-sizing: border-box;
   }
+/* Import modern web font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
   a{
     text-decoration: none;
   }
-  .body{
-    background-color: rgb(80, 74, 74);
+  .container{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    width: 90%;
+    margin: 65px auto;
   }
-  .section{
-    padding:5rem 10%;
+  .about-home .content{
+    flex: 1;
+    width: 600px;
+    margin:0px 25px;
+  }
+  .about-home .content h2{
+    font-size: 38px;
+    margin-bottom: 20px;
+    color: antiquewhite;
+
+  }
+
+  .about-home .content p{
+    font-size: 24px;
+    line-height:1.5 ;
+    margin-bottom: 40px;
+    color: whitesmoke;
+  }
+  body{
+    background-color: black;
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+  .heading{
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-size: 4rem;
+    color: #ffc400;
+     
   }
   .btn{
     margin-top: 1rem;
@@ -30,14 +62,6 @@
     background:#ffc400;
     color:black
   }
-
-  .heading{
-    text-align: center;
-    margin-bottom: 2.5rem;
-    font-size: 4rem;
-    color: #ffc400;
-     
-  }
   
 
   .header{
@@ -50,12 +74,41 @@
     box-shadow: darkgrey;
     align-items: center;
     justify-content: space-between;
-    background: transparent;
-    padding:30px 18%;
-    transition:ease .40s;
+    /* make navbar readable over content: semi-transparent with subtle blur */
+    background: rgba(2,6,23,0.55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+    padding:18px 12%;
+    transition: background .28s ease, padding .22s ease, box-shadow .22s ease;
   }
 
-  .logo a{
+  .container{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    width: 90%;
+    margin: 65px auto;
+  }
+  .about-home .content{
+    flex: 1;
+    width: 600px;
+    margin:0px 25px;
+  }
+  .about-home .content h2{
+    font-size: 38px;
+    margin-bottom: 20px;
+    color: antiquewhite;
+
+  }
+
+  .about-home .content p{
+    font-size: 24px;
+    line-height:1.5 ;
+    margin-bottom: 40px;
+    color: whitesmoke;
+  }
+   .logo a{
     font-size: 35px;
     font-weight: 600;
     letter-spacing: 1px;
@@ -66,21 +119,7 @@
   .logo span{
     color: #ffc400;;
   }
-
-  .nav{
-    
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-   
-    
-   
-  }
-  .nav ul{
-    float:right
-  }
-  
-  .nav li{
+.nav li{
     display:inline-block;
     list-style: none;
   }
@@ -120,24 +159,25 @@
 
 .home-text h2{
   font-size:10vmin;
-  line-height:1.2 ;
-  font-family:Georgia, 'Times New Roman', Times, serif;
-  letter-spacing:4px ;
+  line-height:1.1;
+  font-weight:600;
+  letter-spacing:1px;
   margin-bottom: 20px;
   margin-left: 50%;
   color: whitesmoke;
-  text-shadow: 2px 2px black; 
+  text-shadow: 2px 2px rgba(0,0,0,0.55);
+  font-family: inherit;
 }
 .home-text h1{
   font-size:15vmin;
-  line-height:1.2 ;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  letter-spacing:4px ;
+  line-height:1.05;
+  font-weight:800;
+  letter-spacing:1px;
   margin-bottom: 20px;
   margin-left: 50%;
-  color: #ffc400;
-  text-shadow: 2px 2px black; 
-  
+  color: var(--accent, #ffc400);
+  text-shadow: 2px 2px rgba(0,0,0,0.55);
+  font-family: inherit;
 }
 .home-home-text-btn{
 position: relative;
@@ -146,33 +186,40 @@ margin-left: 50%;
 }
 .service{
   background-color: black;
-  .box-container{
-    grid:29rem;
-
-    .box{
-      text-align:center;
-      padding:2rem;
-      display: inline-block;
-    img{
-      height: 10rem;
-      width:10rem;
-      border-radius: 50%;
-      margin-bottom:1rem ;
-    }
-    h3{
-      font-size: 1.5rem;
-      color: #ffc400;
-    }
-    p{
-      font-size: 1rem;
-      color:whitesmoke;
-      padding:1rem 0;
-      line-height: 2;
-    }
-
-    }
-
-  }
+  padding: 40px 0;
+}
+.service .box-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 4%;
+}
+.service .box{
+  text-align:center;
+  padding:2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent;
+}
+.service .box img{
+  height: 10rem;
+  width: 10rem;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  object-fit: cover;
+}
+.service .box h3{
+  font-size: 1.5rem;
+  color: var(--accent, #ffc400);
+}
+.service .box p{
+  font-size: 1rem;
+  color: whitesmoke;
+  padding: 1rem 0;
+  line-height: 1.6;
 }
 
 /*aboutus home section*/
@@ -187,15 +234,15 @@ margin-left: 50%;
   display: flex;
   justify-content:center;
   align-items: center;
-  width: 90%;
+  width: 100%;
   margin: 65px auto;
 }
-.content{
+.about-home .content{
   flex: 1;
   width: 600px;
   margin:0px 25px;
 }
-.content h2{
+.about-home .content h2{
   font-size: 38px;
   margin-bottom: 20px;
   color: antiquewhite;
@@ -256,49 +303,39 @@ float: right;
 }
 
 .picture img{
- width:90%;
+ width:100%;
  height: 185px;
- margin-left: 5%;
- margin-right: 5%;
+ object-fit: cover;
+ display: block;
  
 }
 
-.packages .content {
-  h3{
-    font-size: 1.5rem;
-    color: #ffc400;
-    max-width: 250px;
-
-  }
-  p{
-    font-size: 1rem;
-    color: whitesmoke;
-    width: 250px;
-    margin-top: 5px;
-    
-    
-
-  }
-  .price{
-    font-size: medium;
-    font-weight: 8px;
-    color: #ffc400;
-    margin-top: auto;
-    margin-bottom: 1.5rem;
-  }
-
-  .btn{
-    margin-bottom: 1.5rem;
-    margin-top: auto;
-    
-  }
-  
+.packages .content h3{
+  font-size: 1.5rem;
+  color: #ffc400;
+  max-width: 250px;
+}
+.packages .content p{
+  font-size: 1rem;
+  color: whitesmoke;
+  width: 250px;
+  margin-top: 5px;
+}
+.packages .content .price{
+  font-size: medium;
+  font-weight: 8px;
+  color: #ffc400;
+  margin-top: auto;
+  margin-bottom: 1.5rem;
+}
+.packages .content .btn{
+  margin-bottom: 1.5rem;
+  margin-top: auto;
 }
 
-.lord{
-  .btn{
-    margin-left: 50%;
-  }
+.lord .btn{
+  display: inline-block;
+  margin: 0 auto;
 }
 
 /* Modern, interactive footer styles */

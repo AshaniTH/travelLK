@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>about us</title>
-    <link rel="stylesheet" href="aboutus.css">
-    <link rel="stylesheet" href="link rel="stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="travelLK.css">
+  <link rel="stylesheet" href="aboutus.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+     integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 <section class="header" Id="navbar">
     
-        <div class="logo">
-            <a href="#">travel<span>LK.</span>
-        </div>
+    <div class="logo">
+      <a href="#">travel<span>LK.</span></a>
+    </div>
     <div class = "nav">
             <ul>
                 <li><a href="travelLK.html">Home</a></li>
@@ -24,6 +27,51 @@
 
 </section>  
 
+<!-- Lightbox modal -->
+<div class="lightbox-modal" id="lightboxModal" aria-hidden="true">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+  <img src="" alt="" id="lightboxImage">
+</div>
+
+<!-- Scripts: counters and lightbox -->
+<script>
+// Count-up for stats when visible
+document.addEventListener('DOMContentLoaded', function(){
+  const counters = document.querySelectorAll('.stat .num');
+  const opts = { threshold: 0.4 };
+  const runCounter = (el, target) => {
+    let start = 0; const duration = 1400; const stepTime = Math.max(Math.floor(duration/target), 12);
+    const timer = setInterval(()=>{
+      start += Math.ceil(target/ (duration/stepTime));
+      if(start >= target){ el.textContent = target + (el.dataset.suffix||''); el.classList.add('animated'); clearInterval(timer); }
+      else el.textContent = start + (el.dataset.suffix||'');
+    }, stepTime);
+  };
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries, obs)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          const el = e.target; const target = parseInt(el.dataset.target||el.textContent)||0;
+          runCounter(el, target); obs.unobserve(el);
+        }
+      });
+    }, opts);
+    counters.forEach(c=> io.observe(c));
+  } else { counters.forEach(c=> runCounter(c, parseInt(c.dataset.target||c.textContent)||0)); }
+
+  // Lightbox
+  const modal = document.getElementById('lightboxModal');
+  const modalImg = document.getElementById('lightboxImage');
+  const closeBtn = document.getElementById('lightboxClose');
+  document.querySelectorAll('.lightbox-trigger').forEach(a=>{
+    a.addEventListener('click', function(e){ e.preventDefault(); modalImg.src = this.href; modalImg.alt = this.querySelector('img').alt || ''; modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); });
+  });
+  const closeLightbox = ()=>{ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); modalImg.src=''; };
+  closeBtn.addEventListener('click', closeLightbox);
+  modal.addEventListener('click', (e)=>{ if(e.target===modal) closeLightbox(); });
+  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeLightbox(); });
+});
+</script>
 <!--home section-->
 
 <section class="aboutushome" Id="home">
@@ -31,58 +79,105 @@
         <h1>About us</h1>
     </div>
 </section>
-    <section class="content">
-        <div class="heading">
-        <h1>our story</h1>
+
+<section class="content">
+  <div class="heading"><h1>our story</h1></div>
+  <p>Established in 2011, TravelLK has been at the forefront of providing exceptional travel experiences for foreigners exploring the enchanting island of Sri Lanka. With a passion for showcasing the rich tapestry of this tropical paradise, we have dedicated ourselves to curating memorable adventures, allowing travelers to immerse themselves in the diverse culture, breathtaking landscapes, and warm hospitality that define Sri Lanka.</p>
+
+  <!-- Interactive intro panel -->
+  <div class="about-intro reveal">
+    <div class="lead">
+      <h2>Discover Sri Lanka with Us</h2>
+      <p>We combine local knowledge, trusted partners and personalised service to create journeys that linger in memory. From cultural highlights to off-the-beaten-track discoveries — we design experiences that fit you.</p>
+      <a class="btn" href="packages.html">Explore Packages</a>
     </div>
-        <p>Established in 2011, TravelLK has been at the forefront of providing exceptional travel experiences for foreigners exploring the enchanting island of Sri Lanka. With a passion for showcasing the rich tapestry of this tropical paradise, we have dedicated ourselves to curating memorable adventures, allowing travelers to immerse themselves in the diverse culture, breathtaking landscapes, and warm hospitality that define Sri Lanka.</p>
-        <div class="heading">
-          <h1>Our Mission</h1>
-      </div>
-          <p>
-            At TravelLK, our mission is simple yet profound: to make your journey through Sri Lanka an unforgettable odyssey. We understand the unique desires and expectations of our foreign guests, and we strive to exceed them at every turn. Whether you seek cultural immersion, thrilling adventures, or tranquil retreats, we are here to craft personalized itineraries that cater to your every need.
-          </p>
-          </div>
+    <img src="clip2.jpg" alt="travel image">
+  </div>
 
-          <div class="heading">
-            <h1>Why Choose TravelLK?</h1>
-        </div>
-            <ol>
-              <li>
-                <b>Expertise:</b> Our team boasts extensive knowledge of Sri Lanka's hidden gems, ensuring you experience the best the island has to offer.
-              </li>
-              <li>
-                <b>Tailored Experiences:</b> No two travelers are the same, and neither should their journeys be. We specialize in crafting bespoke itineraries to suit your preferences and interests.
-              </li>
-              <li>
-                <b>Local Insight: </b>As a team of locals, we bring an insider's perspective to your travels, unveiling the heart and soul of Sri Lanka that goes beyond the typical tourist trails.
-              </li>
-              <li>
-               <b> Safety First:</b> Your safety is our top priority. We collaborate with reliable partners and adhere to the highest safety standards to ensure a secure and worry-free exploration.
-              </li>
-            </ol>
-            </div>
+  <!-- Mission cards -->
+  <div class="mission-cards">
+    <div class="mission-card">
+      <h3>Personalized Itineraries</h3>
+      <p>Every trip is designed around your interests, tempo and budget — no cookie-cutter tours.</p>
+    </div>
+    <div class="mission-card">
+      <h3>Local Experts</h3>
+      <p>Our guides are local specialists who bring stories, history and culture to life.</p>
+    </div>
+    <div class="mission-card">
+      <h3>Sustainable Travel</h3>
+      <p>We work with communities and partners who respect the environment and local traditions.</p>
+    </div>
+  </div>
 
-            <div class="heading">
-              <h1>Our Services</h1>
-          </div>
-          <ol>
-            <li><strong>Accommodation:</strong> From luxury resorts to charming guesthouses, we offer a range of accommodation options that cater to different budgets and tastes.</li>
-            <li><strong>Transportation:</strong> Seamless and comfortable travel is key to a memorable trip. Our transportation services include reliable transfers, private vehicles, and expert local guides.</li>
-            <li><strong>Guided Tours:</strong> Immerse yourself in the cultural tapestry of Sri Lanka with our knowledgeable guides who breathe life into every story and historical site.</li>
-            <li><strong>Adventure Packages:</strong> For the thrill-seekers, our adventure packages promise adrenaline-pumping activities set against the backdrop of Sri Lanka's stunning natural beauty.</li>
-          </ol>
-              </div>
-              <div class="heading">
-                <h1>join with us</h1>
-            </div>
-                <p>Embark on a voyage of discovery with TravelLK. Let us be your trusted companion as you explore the mesmerizing landscapes, vibrant traditions, and warm hospitality that define Sri Lanka. Contact us today and let the adventure begin!
-                  </p>
-                </div>
+  <!-- Quick stats -->
+  <div class="stats">
+    <div class="stat">
+      <div class="num">250+</div>
+      <p>Happy Guests</p>
+    </div>
+    <div class="stat">
+      <div class="num">12</div>
+      <p>Years Experience</p>
+    </div>
+    <div class="stat">
+      <div class="num">30+</div>
+      <p>Unique Tours</p>
+    </div>
+  </div>
 
-        </div>
 
-    </section>
+  <div class="heading"><h1>Our Mission</h1></div>
+  <p>At TravelLK, our mission is simple yet profound: to make your journey through Sri Lanka an unforgettable odyssey. We understand the unique desires and expectations of our foreign guests, and we strive to exceed them at every turn. Whether you seek cultural immersion, thrilling adventures, or tranquil retreats, we are here to craft personalized itineraries that cater to your every need.</p>
+
+  <div class="heading"><h1>Why Choose TravelLK?</h1></div>
+  <ol>
+    <li><b>Expertise:</b> Our team boasts extensive knowledge of Sri Lanka's hidden gems, ensuring you experience the best the island has to offer.</li>
+    <li><b>Tailored Experiences:</b> No two travelers are the same, and neither should their journeys be. We specialize in crafting bespoke itineraries to suit your preferences and interests.</li>
+    <li><b>Local Insight:</b> As a team of locals, we bring an insider's perspective to your travels, unveiling the heart and soul of Sri Lanka that goes beyond the typical tourist trails.</li>
+    <li><b>Safety First:</b> Your safety is our top priority. We collaborate with reliable partners and adhere to the highest safety standards to ensure a secure and worry-free exploration.</li>
+  </ol>
+
+  <div class="heading"><h1>Our Services</h1></div>
+  <ol>
+    <li><strong>Accommodation:</strong> From luxury resorts to charming guesthouses, we offer a range of accommodation options that cater to different budgets and tastes.</li>
+    <li><strong>Transportation:</strong> Seamless and comfortable travel is key to a memorable trip. Our transportation services include reliable transfers, private vehicles, and expert local guides.</li>
+    <li><strong>Guided Tours:</strong> Immerse yourself in the cultural tapestry of Sri Lanka with our knowledgeable guides who breathe life into every story and historical site.</li>
+    <li><strong>Adventure Packages:</strong> For the thrill-seekers, our adventure packages promise adrenaline-pumping activities set against the backdrop of Sri Lanka's stunning natural beauty.</li>
+  </ol>
+
+  <div class="heading"><h1>join with us</h1></div>
+  <p>Embark on a voyage of discovery with TravelLK. Let us be your trusted companion as you explore the mesmerizing landscapes, vibrant traditions, and warm hospitality that define Sri Lanka. Contact us today and let the adventure begin!</p>
+
+  <!-- Team section -->
+  <div class="heading"><h1>Meet our team</h1></div>
+  <div class="team">
+    <div class="member">
+      <a href="service/guide.jpg" class="lightbox-trigger"><img src="service/guide.jpg" alt="Kasun Perera"></a>
+      <h4>Kasun Perera</h4>
+      <p>Lead Guide — Expert in cultural tours and nature treks.</p>
+    </div>
+    <div class="member">
+      <a href="service/camping.jpg" class="lightbox-trigger"><img src="service/camping.jpg" alt="Nisha Fernando"></a>
+      <h4>Nisha Fernando</h4>
+      <p>Operations Manager — Routes, logistics and safety.</p>
+    </div>
+    <div class="member">
+      <a href="service/boatride.jpg" class="lightbox-trigger"><img src="service/boatride.jpg" alt="Ravi Kumar"></a>
+      <h4>Ravi Kumar</h4>
+      <p>Customer Experience — Personalized itineraries & support.</p>
+    </div>
+  </div>
+
+  <!-- FAQ accordion -->
+  <div class="heading"><h1>Frequently Asked</h1></div>
+  <details class="faq"><summary>How do I book a tour?</summary><p>You can book via the Packages page, or contact us using the email/phone listed in the footer — we'll confirm availability and next steps.</p></details>
+  <details class="faq"><summary>Do you provide private guides?</summary><p>Yes — private guides and vehicles can be arranged for custom itineraries. Tell us your dates and preferences.</p></details>
+
+  <div class="heading"><h1>join with us</h1></div>
+
+  <p>Embark on a voyage of discovery with TravelLK. Let us be your trusted companion as you explore the mesmerizing landscapes, vibrant traditions, and warm hospitality that define Sri Lanka. Contact us today and let the adventure begin!</p>
+</section>
 
    
 <section class="footer">
@@ -129,4 +224,5 @@
 
 
 </body>
+</html>
 

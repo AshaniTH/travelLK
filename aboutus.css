@@ -31,29 +31,88 @@
     color:black
   }
 
-  .heading{
-    text-align: center;
-    margin-bottom: 2.5rem;
-    font-size: 4rem;
-    color: #ffc400;
-     
-  }
+/* Modern compact interactive section headings */
+.heading{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+  margin-bottom:1.6rem;
+}
+
+/* main section title (used by existing .heading > h1) */
+.heading h1,
+.section-title{
+  font-family: 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial;
+  font-weight:700;
+  font-size: clamp(1.5rem, 3.2vw, 2.4rem);
+  color: #ffffff;
+  letter-spacing: 0.6px;
+  margin:0;
+  position: relative;
+  padding-bottom: 0.6rem;
+  transition: transform .28s ease, color .28s ease;
+}
+
+/* small eyebrow / label above the title (optional) */
+.section-eyebrow{
+  font-size: .78rem;
+  text-transform: uppercase;
+  color: rgba(255,196,0,0.95);
+  letter-spacing: 1.4px;
+  font-weight:700;
+}
+
+/* animated underline */
+.heading h1::after,
+.section-title::after{
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: 46px;
+  height: 4px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, rgba(255,196,0,1), rgba(255,255,255,0.92));
+  box-shadow: 0 6px 18px rgba(255,196,0,0.08);
+  transition: width .36s cubic-bezier(.2,.9,.3,1), box-shadow .36s ease, transform .36s ease;
+}
+
+/* hover/focus micro-interaction */
+.heading:hover h1,
+.section-title:hover{
+  transform: translateY(-4px);
+}
+.heading:hover h1::after,
+.section-title:hover::after{
+  width: 88px;
+  box-shadow: 0 14px 40px rgba(255,196,0,0.12);
+}
+
+/* smaller titles inside cards/blocks to match style */
+.about-intro .lead h2,
+.mission-card h3,
+.member h4,
+details.faq summary{
+  font-family: inherit;
+  font-weight:700;
+  color: #fff;
+  letter-spacing: 0.3px;
+  margin:0 0 8px 0;
+  font-size: 1.05rem;
+  transition: color .24s ease, transform .24s ease;
+}
+.about-intro .lead h2:hover,
+.mission-card h3:hover,
+.member h4:hover,
+details.faq summary:hover{
+  color: #ffc400;
+  transform: translateY(-3px);
+}
   
 
-  .header{
-    position: fixed;
-    top:0; left:0; right: 0;
-    z-index: 1000;
-    display:flex;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    box-shadow: darkgrey;
-    align-items: center;
-    justify-content: space-between;
-    background: transparent;
-    padding:30px 18%;
-    transition:ease .40s;
-  }
+  /* header styles are provided by travelLK.css (shared) */
 
   .logo a{
     font-size: 35px;
@@ -100,52 +159,160 @@
 }
 
 
-.aboutushome{
+  .aboutushome{
     position:relative;
     width:100%;
     height:360px;
     background-color: black;
-    background-image: url(slide1.jpg) ;
+    background-image: url(slide1.jpg);
     overflow: hidden;
     background-size: cover;
     background-position: center;
     display: grid;
-    grid-template-columns: repeat(1,1fr);
+    grid-template-columns: 1fr;
     align-items: center;
-  
-  
+    justify-items: center; /* center heading horizontally */
   }
   .aboutushome h1{
-    font-size:15vmin;
-  line-height:1.2 ;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  letter-spacing:4px ;
-  margin-bottom: 20px;
-  margin-left: 50%;
-  color: #ffc400;
-  text-shadow: 2px 2px black; 
-  
+    font-size:8vmin;
+    line-height:1.2;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    letter-spacing:4px;
+    margin: 0;
+    color: #ffc400;
+    text-shadow: 2px 2px black;
+    text-align: center;
   }
   .content{
     background-color: black;
-    
+    padding: 36px 16px;
+  }
+  /* center page content to align with header/footer */
+  .content,
+  .content > * {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 4%;
+    box-sizing: border-box;
   }
   .content p{
-    font-size: 30px;
-    font-weight: 30px;
-    align-items: center;
+    font-size: 18px;
+    line-height: 1.6;
     color: #fff;
-    margin-left: 100px;
-    margin-left: 100px;
+    max-width: 1000px;
+    margin: 18px auto;
   }
   .content ol{
-    font-size: 30px;
-    font-weight: 30px;
-    align-items: center;
+    font-size: 18px;
+    line-height: 1.6;
     color: #fff;
-    margin-left: 100px;
-    margin-bottom: 100px;
+    max-width: 1000px;
+    margin: 18px auto 48px;
   }
+  
+/* Modern interactive About Us additions */
+.about-intro{
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 32px;
+  align-items: center;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  padding: 36px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+  margin-bottom: 28px;
+}
+.about-intro img{
+  width: 100%;
+  height: 100%;
+  max-height: 320px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+.about-intro .lead{
+  color: #e6eef9;
+}
+.about-intro .lead h2{ margin:0 0 12px; color: var(--accent, #ffc400); }
+.about-intro .lead p{ font-size: 1.05rem; line-height:1.7; color: #dfe7ef; }
+
+.mission-cards{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 18px;
+  margin: 28px 0 36px;
+}
+.mission-card{
+  background: rgba(255,255,255,0.02);
+  padding: 20px;
+  border-radius: 10px;
+  transition: transform .28s ease, box-shadow .28s ease;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+.mission-card:hover{ transform: translateY(-8px); box-shadow: 0 18px 40px rgba(2,6,23,0.55); }
+.mission-card h3{ color: var(--accent, #ffc400); margin-bottom:8px; }
+.mission-card p{ color: #cfd8e3; line-height:1.6; }
+
+.stats{
+  display:flex; gap:18px; justify-content: space-between; margin: 36px 0;
+}
+.stat{
+  flex:1; background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+  padding: 20px; border-radius: 10px; text-align: center;
+}
+.stat .num{ font-size: 2.15rem; color: var(--accent, #ffc400); font-weight:700; }
+.stat p{ color: #cbd6e2; margin-top:6px; }
+
+/* Team section */
+.team{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 18px;
+  margin-bottom: 36px;
+}
+.member{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  padding: 18px; border-radius: 12px; text-align:center;
+  transition: transform .28s cubic-bezier(.2,.9,.2,1), box-shadow .28s ease;
+}
+.member img{ width:120px; height:120px; border-radius:50%; object-fit:cover; margin-bottom: 12px; }
+.member h4{ color: #fff; margin: 4px 0; }
+.member p{ color: #cfd8e3; font-size: .95rem; }
+.member:hover{ transform: translateY(-10px); box-shadow: 0 18px 40px rgba(2,6,23,0.6); }
+
+/* Styled accordion using details/summary */
+details.faq{ background: rgba(255,255,255,0.02); padding: 12px 16px; border-radius:8px; margin: 10px 0; }
+details.faq summary{ cursor:pointer; list-style:none; color:#fff; font-weight:600; }
+details.faq[open]{ box-shadow: 0 14px 36px rgba(2,6,23,0.5); }
+details.faq p{ color:#cfd8e3; margin-top:8px; }
+
+/* simple reveal animation for sections */
+.reveal{ opacity:0; transform: translateY(14px); animation: reveal .8s ease forwards; }
+@keyframes reveal{ to{ opacity:1; transform: none; } }
+
+@media (max-width:900px){
+  .about-intro{ grid-template-columns: 1fr; }
+  .section{ padding: 50px 6%; }
+}
+
+/* Lightbox modal styles */
+.lightbox-modal{
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.85);
+  z-index: 2000;
+}
+.lightbox-modal.open{ display:flex; }
+.lightbox-modal img{ max-width: 92%; max-height: 86%; border-radius: 8px; box-shadow: 0 20px 60px rgba(0,0,0,0.6); }
+.lightbox-close{ position: absolute; top: 18px; right: 22px; color:#fff; font-size:26px; cursor:pointer; }
+
+/* Counter transition (optional) */
+.num{ transition: transform .4s ease; }
+.num.animated{ transform: scale(1.06); }
+
   
 /* Style the footer section */
 .footer {

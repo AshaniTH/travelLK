@@ -40,20 +40,7 @@
   }
   
 
-  .header{
-    position: fixed;
-    top:0; left:0; right: 0;
-    z-index: 1000;
-    display:flex;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    box-shadow: darkgrey;
-    align-items: center;
-    justify-content: space-between;
-    background: transparent;
-    padding:30px 18%;
-    transition:ease .40s;
-  }
+  /* header styles are provided by travelLK.css (shared) */
 
   .logo a{
     font-size: 35px;
@@ -105,26 +92,24 @@
   width:100%;
   height:360px;
   background-color: black;
-  background-image: url(clip3.jpg) ;
+  background-image: url(clip3.jpg);
   overflow: hidden;
   background-size: cover;
   background-position: center;
   display: grid;
-  grid-template-columns: repeat(1,1fr);
+  grid-template-columns: 1fr;
   align-items: center;
-
-
+  justify-items: center;
 }
 .packageshome h1{
-  font-size:15vmin;
-line-height:1.2 ;
-font-family: Georgia, 'Times New Roman', Times, serif;
-letter-spacing:4px ;
-margin-bottom: 20px;
-margin-left: 50%;
-color: #ffc400;
-text-shadow: 2px 2px black; 
-
+  font-size:8vmin;
+  line-height:1.2;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  letter-spacing:4px;
+  margin: 0;
+  color: #ffc400;
+  text-shadow: 2px 2px black;
+  text-align: center;
 }
 
 
@@ -139,10 +124,18 @@ text-shadow: 2px 2px black;
   display: flex;
   justify-content:center;
   flex-wrap: wrap;
-  padding: 30px;
+  padding: 30px 4%;
   margin-top:8%;
   
  
+}
+
+/* center main content to align with header */
+.packages,
+.package-card{
+  max-width: 1140px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .card{
@@ -161,49 +154,38 @@ text-shadow: 2px 2px black;
 }
 
 .picture img{
- width:90%;
- height: 185px;
- margin-left: 5%;
- margin-right: 5%;
- 
+  width:100%;
+  height:185px;
+  object-fit:cover;
+  display:block;
 }
 
-.packages .content {
-  h3{
-    font-size: 1.5rem;
-    color: #ffc400;
-    max-width: 250px;
-
-  }
-  p{
-    font-size: 1rem;
-    color: whitesmoke;
-    width: 250px;
-    margin-top: 5px;
-    
-    
-
-  }
-  .price{
-    font-size: medium;
-    font-weight: 8px;
-    color: #ffc400;
-    margin-top: auto;
-    margin-bottom: 1.5rem;
-  }
-
-  .btn{
-    margin-bottom: 1.5rem;
-    margin-top: auto;
-    
-  }
-  
+.packages .content h3{
+  font-size: 1.5rem;
+  color: #ffc400;
+  max-width: 250px;
+}
+.packages .content p{
+  font-size: 1rem;
+  color: whitesmoke;
+  width: 250px;
+  margin-top: 5px;
+}
+.packages .content .price{
+  font-size: medium;
+  font-weight: 8px;
+  color: #ffc400;
+  margin-top: auto;
+  margin-bottom: 1.5rem;
+}
+.packages .content .btn{
+  margin-bottom: 1.5rem;
+  margin-top: auto;
 }
 
-.lord{
-  .btn{
-    margin-left: 50%;
-  }
+.lord .btn{
+  display: inline-block;
+  margin: 0 auto;
 }
 
   
